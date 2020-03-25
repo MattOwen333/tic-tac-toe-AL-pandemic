@@ -1,8 +1,8 @@
 const gameState = {
   players: ["x", "o"],
   board: [
-    [null, "X", null],
-    [null, null, "o"],
+    [null, null, null],
+    [null, null, null],
     [null, null, null]
   ]
 };
@@ -76,6 +76,15 @@ function checkForWin() {
     alert(gameState.players[0] + " Wins!");
   }
 }
+
+$(".reset").click(function() {
+  gameState.players = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+  ];
+  renderBoard();
+});
 /*
   start with empty 3x3 grid
       initialize the grid in JS
