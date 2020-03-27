@@ -24,3 +24,8 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+.reset {
+  height: 60px;
+  width: 120px;
+}

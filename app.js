@@ -13,7 +13,7 @@ function renderBoard() {
   $(".board").empty();
   gameState.board.forEach((row, rowIndex) => {
     row.forEach((tile, tileIndex) => {
-      console.log(tile);
+      //  console.log(tile);
       $(".board").append(
         $(`<div class="cell">${tile !== null ? tile : ""}</div>`)
           .data("tile", tileIndex)
@@ -25,6 +25,15 @@ function renderBoard() {
 
 $(document).ready(() => {
   renderBoard();
+  $(".reset").click(function() {
+    console.log("click");
+    gameState.board = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ];
+    renderBoard();
+  });
   $(".board").on("click", ".cell", function() {
     const column = $(this).data("tile");
     const row = $(this).data("row");
@@ -77,14 +86,6 @@ function checkForWin() {
   }
 }
 
-$(".reset").click(function() {
-  gameState.players = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-  ];
-  renderBoard();
-});
 /*
   start with empty 3x3 grid
       initialize the grid in JS
